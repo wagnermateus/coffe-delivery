@@ -65,8 +65,8 @@ export const QuantityButtons = styled.div`
   background: ${(props) => props.theme["base-button"]};
   padding: 0.5rem;
   width: 4.5rem;
-  text-align: center;
   display: flex;
+  justify-content: center;
   gap: 0.25rem;
   margin-right: 0.5rem;
   margin-left: 1.4rem;
