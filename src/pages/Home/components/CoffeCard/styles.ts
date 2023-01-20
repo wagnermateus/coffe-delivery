@@ -79,18 +79,10 @@ export const QuantityButtons = styled.div`
       color: ${(props) => props.theme["purple"]};
       transition: all 0.3s;
     }
-    :nth-child(1) {
-      :hover {
-        svg {
-          color: ${(props) => props.theme["purple-dark"]};
-        }
-      }
-    }
-    :nth-child(3) {
-      :hover {
-        svg {
-          color: ${(props) => props.theme["purple-dark"]};
-        }
+
+    :hover {
+      svg {
+        color: ${(props) => props.theme["purple-dark"]};
       }
     }
   }

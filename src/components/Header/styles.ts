@@ -39,7 +39,7 @@ export const Actions = styled.div`
     border-radius: 8px;
   }
 
-  > button {
+  > a {
     border: none;
     border-radius: 8px;
     height: 2.375rem;

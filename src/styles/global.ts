@@ -19,8 +19,18 @@ input:focus{
     outline: none;
     box-shadow: 0 0 0 2px ${(props) => props.theme["yellow-dark"]};
 }
+button:focus{
+    outline: none;
+    box-shadow: 0 0 0 2px ${(props) => props.theme["purple"]};
+}
 button{
     cursor: pointer;
+}
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+  
 }
 
 `;

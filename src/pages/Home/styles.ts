@@ -4,13 +4,17 @@ export const HomeContainer = styled.main``;
 
 export const Header = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   gap: 3.5rem;
 
   margin-top: 6.5rem;
-  background: url("src/assets/background.svg");
+  background-image: url("src/assets/background.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+
   padding-bottom: 6.75rem;
   img {
+    width: 29.75rem;
     margin-top: 5.75rem;
     margin-right: 10rem;
   }
@@ -85,9 +89,7 @@ export const DeliveryDetails = styled.article`
 export const CoffeList = styled.section`
   display: flex;
   justify-content: center;
-  align-items: center;
-  padding-left: auto;
-  padding-right: auto;
+
   > div {
     max-width: 70rem;
     margin-right: 10rem;

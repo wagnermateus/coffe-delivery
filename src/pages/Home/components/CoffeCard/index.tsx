@@ -1,5 +1,5 @@
 import { Minus, Plus, ShoppingCartSimple } from "phosphor-react";
-import { CoffeProps } from "../..";
+
 import {
   ButtonAddToCart,
   CardFooter,
@@ -9,7 +9,11 @@ import {
   QuantityButtons,
 } from "./styles";
 
+import { v4 as uuidv4 } from "uuid";
+import { CoffeProps } from "../../../../contexts/OrderContexts";
+
 export function CoffeCard({
+  id,
   name,
   description,
   imageUrl,
@@ -21,7 +25,7 @@ export function CoffeCard({
       <img src={imageUrl} alt="Chavena com café" />
       <CardTags>
         {type.map((value) => {
-          return <span>{value}</span>;
+          return <span key={uuidv4()}>{value}</span>;
         })}
       </CardTags>
       <strong>{name}</strong>
