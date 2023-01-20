@@ -8,8 +8,6 @@ export const CheckoutContainer = styled.div`
   align-items: center;
 
   padding-top: 2.5rem;
-  padding-left: 10rem;
-  padding-right: 10rem;
 `;
 export const SubTitles = styled.strong`
   font-family: "Baloo 2", sans-serif;
@@ -134,7 +132,7 @@ export const InputContainer = styled.div`
   justify-content: space-between;
   background: ${(props) => props.theme["base-button"]};
   border-radius: 6px;
-
+  color: ${(props) => props.theme["base-text"]};
   input {
     position: absolute;
     height: 100%;

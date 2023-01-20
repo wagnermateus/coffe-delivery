@@ -49,10 +49,7 @@ export function Checkout() {
               </div>
               <div>
                 <NumberInput type="number" placeholder="Número" required />
-                <ComplementInput
-                  type="text"
-                  placeholder="Complemento opcional"
-                />
+                <ComplementInput type="text" placeholder="Complemento" />
               </div>
               <div>
                 <NeighborhoodInput type="text" placeholder="Bairro" required />

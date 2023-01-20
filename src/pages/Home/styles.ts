@@ -16,13 +16,12 @@ export const Header = styled.section`
   img {
     width: 29.75rem;
     margin-top: 5.75rem;
-    margin-right: 10rem;
   }
 `;
 
 export const HeaderContent = styled.article`
   width: 36.75rem;
-  margin-left: 10rem;
+
   margin-top: 5.875rem;
 `;
 
@@ -92,8 +91,6 @@ export const CoffeList = styled.section`
 
   > div {
     max-width: 70rem;
-    margin-right: 10rem;
-    margin-left: 10rem;
 
     display: flex;
     flex-direction: column;
