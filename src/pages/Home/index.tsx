@@ -17,7 +17,7 @@ import { useContext } from "react";
 import { OrderContext } from "../../contexts/OrderContexts";
 
 export function Home() {
-  const { coffeDetails } = useContext(OrderContext);
+  const { allCoffes } = useContext(OrderContext);
   return (
     <HomeContainer>
       <Header>
@@ -66,7 +66,7 @@ export function Home() {
         <div>
           <strong>Nossos Cafés</strong>
           <CoffeCards>
-            {coffeDetails.map((coffe) => (
+            {allCoffes.map((coffe) => (
               <CoffeCard
                 key={coffe.id}
                 id={coffe.id}
