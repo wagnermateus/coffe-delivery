@@ -15,6 +15,23 @@ import {
 
 export function CoffeSelected() {
   const { orderCoffes, removeCoffeFromCart } = useContext(OrderContext);
+
+  /*  function increaseTheAmountOfCoffe() {
+    setCoffeAmount((state) => {
+      while (state < 50) {
+        return state + 1;
+      }
+      return state;
+    });
+  }
+  function reduceTheAmountOfCoffe() {
+    setCoffeAmount((state) => {
+      while (state > 1) {
+        return state - 1;
+      }
+      return 1;
+    });
+  }*/
   return (
     <CoffeSelectedContainer>
       {orderCoffes.map((orderCoffe) => {
@@ -28,7 +45,7 @@ export function CoffeSelected() {
                   <button type="button">
                     <Minus size={14} weight="bold" />
                   </button>
-                  <span>1</span>
+                  <span>{orderCoffe.quantity}</span>
                   <button type="button">
                     <Plus size={14} weight="bold" />
                   </button>

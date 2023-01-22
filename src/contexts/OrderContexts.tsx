@@ -7,9 +7,9 @@ import { OrderCoffeProps, orderReducer } from "../reducers/order/reducer";
 interface OrderContextProps {
   orderCoffes: OrderCoffeProps[];
   allCoffes: CoffeProps[];
-  addCoffeToCart: (coffe: OrderCoffeProps) => void;
-  coffeId?: string | null;
+
   removeCoffeFromCart: (coffeName: string) => void;
+  addCoffeToCart: (coffe: OrderCoffeProps) => void;
 }
 
 interface OrderContextProviderProps {
@@ -43,7 +43,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
         allCoffes,
         orderCoffes,
         addCoffeToCart,
-        coffeId,
+
         removeCoffeFromCart,
       }}
     >

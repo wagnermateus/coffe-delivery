@@ -24,22 +24,35 @@ export function CoffeCard({
   price,
   type,
 }: CoffeProps) {
-  const [coffeAmount, setCoffeeAmount] = useState(0);
   const { addCoffeToCart, orderCoffes } = useContext(OrderContext);
+  const [coffeAmount, setCoffeAmount] = useState(1);
   function handleAddCoffeToCart() {
     let data: OrderCoffeProps;
     data = {
       name: name,
       imageUrl: imageUrl,
       price: price,
-      quantity: 5,
-      totalPayable: 250,
+      quantity: coffeAmount,
+      totalPayable: price * coffeAmount,
     };
     addCoffeToCart(data);
-
-    console.log(orderCoffes);
   }
-
+  function increaseTheAmountOfCoffe() {
+    setCoffeAmount((state) => {
+      while (state < 50) {
+        return state + 1;
+      }
+      return state;
+    });
+  }
+  function reduceTheAmountOfCoffe() {
+    setCoffeAmount((state) => {
+      while (state > 1) {
+        return state - 1;
+      }
+      return 1;
+    });
+  }
   return (
     <CoffeCardContainer>
       <img src={imageUrl} alt="Chavena com café" />
@@ -56,11 +69,11 @@ export function CoffeCard({
           <span>kzs</span>
         </Price>
         <QuantityButtons>
-          <button type="button">
+          <button type="button" onClick={reduceTheAmountOfCoffe}>
             <Minus size={14} weight="bold" />
           </button>
-          <span>1</span>
-          <button type="button">
+          <span>{coffeAmount}</span>
+          <button type="button" onClick={increaseTheAmountOfCoffe}>
             <Plus size={14} weight="bold" />
           </button>
         </QuantityButtons>
