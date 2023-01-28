@@ -25,7 +25,7 @@ export function CoffeSelected() {
     <CoffeSelectedContainer>
       {orderCoffes.map((orderCoffe) => {
         return (
-          <CoffeSelectedContent>
+          <CoffeSelectedContent key={orderCoffe.name}>
             <img src={orderCoffe.imageUrl} />
             <Datails>
               <CoffeName>{orderCoffe.name}</CoffeName>
