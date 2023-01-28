@@ -11,11 +11,15 @@ import {
 export function ConfirmOrderCard() {
   const { orderCoffes } = useContext(OrderContext);
   const [totalAmountPayable, setTotalAmountPayable] = useState(0);
-  let deliveryPrice = 3.5;
+  const [deliveryPrice, setDeliveryPrice] = useState(0);
 
   const [totalItemCost, setTotalItemCost] = useState(0);
+  const cardIsEmpyt = orderCoffes.length === 0;
 
   function calculateTheTotalAmountPayable() {
+    if (!cardIsEmpyt) {
+      setDeliveryPrice(3.5);
+    }
     setTotalAmountPayable(totalItemCost + deliveryPrice);
   }
 
@@ -45,7 +49,9 @@ export function ConfirmOrderCard() {
           <strong>{totalAmountPayable.toFixed(2)}kzs</strong>
         </ConfirmOrderContent>
       </ConfirmOrder>
-      <ConfirmButton type="submit">Confirmar Pedido</ConfirmButton>
+      <ConfirmButton type="submit" disabled={cardIsEmpyt}>
+        Confirmar Pedido
+      </ConfirmButton>
     </ConfirmOrderCardContainer>
   );
 }

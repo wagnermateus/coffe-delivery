@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { OrderContext } from "../../../../contexts/OrderContexts";
 
 import { Minus, Plus, Trash } from "phosphor-react";
@@ -14,24 +14,13 @@ import {
 } from "./styles";
 
 export function CoffeSelected() {
-  const { orderCoffes, removeCoffeFromCart } = useContext(OrderContext);
+  const {
+    orderCoffes,
+    removeCoffeFromCart,
+    increaseTheAmountOfCoffeInsideTheOrderCard,
+    reduceTheAmountOfCoffeInsideTheOrderCard,
+  } = useContext(OrderContext);
 
-  /*  function increaseTheAmountOfCoffe() {
-    setCoffeAmount((state) => {
-      while (state < 50) {
-        return state + 1;
-      }
-      return state;
-    });
-  }
-  function reduceTheAmountOfCoffe() {
-    setCoffeAmount((state) => {
-      while (state > 1) {
-        return state - 1;
-      }
-      return 1;
-    });
-  }*/
   return (
     <CoffeSelectedContainer>
       {orderCoffes.map((orderCoffe) => {
@@ -42,11 +31,23 @@ export function CoffeSelected() {
               <CoffeName>{orderCoffe.name}</CoffeName>
               <DetailsButtons>
                 <QuantityButtons>
-                  <button type="button">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      reduceTheAmountOfCoffeInsideTheOrderCard(orderCoffe.name)
+                    }
+                  >
                     <Minus size={14} weight="bold" />
                   </button>
                   <span>{orderCoffe.quantity}</span>
-                  <button type="button">
+                  <button
+                    type="button"
+                    onClick={() =>
+                      increaseTheAmountOfCoffeInsideTheOrderCard(
+                        orderCoffe.name
+                      )
+                    }
+                  >
                     <Plus size={14} weight="bold" />
                   </button>
                 </QuantityButtons>

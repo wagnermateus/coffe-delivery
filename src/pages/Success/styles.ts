@@ -1,4 +1,3 @@
-import { IconContext } from "phosphor-react";
 import styled from "styled-components";
 
 export const SuccessContainer = styled.div`
@@ -41,7 +40,7 @@ export const OrderInfoContainer = styled.div`
 
   width: 32.875rem;
   height: 16.875rem;
-
+  line-height: 1.6;
   padding: 2.5rem;
   border: 1px solid transparent;
   border-image: linear-gradient(to right, #dbac2c, #8047f8) 1;

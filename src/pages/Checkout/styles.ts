@@ -21,9 +21,15 @@ export const OrderCardForm = styled.form`
   grid-template-columns: 40rem 28rem;
   column-gap: 2rem;
 
-  @media (max-width: 1430px) {
+  @media (max-width: 1169px) {
+    padding: 0 2rem 5rem 2rem;
     grid-template-columns: 1fr;
-    grid-row-gap: 2rem;
+    grid-row-gap: 3rem;
+  }
+  @media (max-width: 590px) {
+    grid-template-columns: 22.5rem;
+    grid-row-gap: 23rem;
+    padding-bottom: 3rem;
   }
 `;
 
@@ -122,27 +128,35 @@ export const UFInput = styled(InputBase)`
   margin-left: 0.75rem;
 `;
 
-export const PaymentMethodContainer = styled.div``;
+export const PaymentMethodContainer = styled.div`
+  display: flex;
+  width: 100%;
+
+  @media (max-width: 590px) {
+    flex-direction: column;
+  }
+`;
 
 export const InputContainer = styled.div`
   position: relative;
-  width: 11.166rem;
+  width: 100%;
   height: 3.1rem;
   display: flex;
-  justify-content: space-between;
   background: ${(props) => props.theme["base-button"]};
   border-radius: 6px;
   color: ${(props) => props.theme["base-text"]};
+
   input {
     position: absolute;
     height: 100%;
     width: 100%;
     margin: 0;
-    z-index: 2;
+    z-index: 1;
     opacity: 0;
 
     :checked + div {
       background: ${(props) => props.theme["purple-light"]};
+      border: 1px solid ${(props) => props.theme["purple"]};
     }
   }
 `;
@@ -156,6 +170,22 @@ export const InputContent = styled.div`
   transition: all 300ms;
   border-radius: 6px;
   label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+  @media (max-width: 768px) {
+    gap: 0.5rem;
+  }
+`;
+export const AddressInputContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  @media (max-width: 590px) {
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      width: 100%;
+      margin: 0;
+    }
   }
 `;

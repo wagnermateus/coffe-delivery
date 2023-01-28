@@ -10,12 +10,22 @@ export const Header = styled.section`
   margin-top: 6.5rem;
   background-image: url("src/assets/background.svg");
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: initial;
 
   padding-bottom: 6.75rem;
   img {
     width: 29.75rem;
     margin-top: 5.75rem;
+  }
+  @media (max-width: 1167px) {
+    flex-wrap: wrap;
+    padding: 0 2rem;
+
+    img {
+      height: 18rem;
+      margin-top: 0;
+      width: 100%;
+    }
   }
 `;
 
@@ -102,6 +112,9 @@ export const CoffeList = styled.section`
       margin-top: 2rem;
       margin-bottom: 2.125rem;
     }
+  }
+  @media (max-width: 1167px) {
+    padding: 0 2rem;
   }
 `;
 

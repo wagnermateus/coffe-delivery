@@ -4,12 +4,15 @@ export const CoffeSelectedContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  overflow: auto;
+  max-height: 14rem;
 `;
 
 export const CoffeSelectedContent = styled.div`
   display: flex;
   border-bottom: 1px solid ${(props) => props.theme["base-button"]};
   padding-bottom: 1.5rem;
+
   img {
     width: 4rem;
   }

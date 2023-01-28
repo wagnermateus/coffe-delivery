@@ -5,6 +5,7 @@ export const ConfirmOrderCardContainer = styled.section`
 
   padding: 2.5rem;
   border-radius: 6px 44px 6px 44px;
+
   background: ${(props) => props.theme["base-card"]};
 `;
 
@@ -43,7 +44,7 @@ export const ConfirmButton = styled.button`
 
   transition: all 0.3s;
 
-  :hover {
+  & :not(:disabled):hover {
     background: ${(props) => props.theme["yellow-dark"]};
   }
 `;

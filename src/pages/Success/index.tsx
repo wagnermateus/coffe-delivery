@@ -11,8 +11,12 @@ import {
   TitleContent,
 } from "./styles";
 import delivery from "../../assets/delivery.svg";
+import { useContext, useEffect } from "react";
+import { OrderContext } from "../../contexts/OrderContexts";
 
 export function Success() {
+  const { formData } = useContext(OrderContext);
+
   return (
     <SuccessContainer>
       <TitleContent>
@@ -26,8 +30,9 @@ export function Success() {
               <MapPin size={16} color="#fcfcfc" weight="fill" />
             </MapIconContainer>
             <p>
-              Entrega em Rua João Daniel Martinelli, 102Farrapos - Porto Alegre,
-              RS
+              Entrega em <b>{formData.street + ", " + formData.number}</b>{" "}
+              <br />
+              {formData.neighborhood} - {formData.city}, {formData.uf}
             </p>
           </OrderInfoContent>
           <OrderInfoContent>
@@ -45,7 +50,7 @@ export function Success() {
             </CurrencyIconContainer>
             <OrderInfoDetails>
               <span>Pagamento na entrega</span>
-              <b>Cartão de Crédito</b>
+              <b>{formData.paymentMethod}</b>
             </OrderInfoDetails>
           </OrderInfoContent>
         </OrderInfoContainer>

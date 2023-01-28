@@ -25,10 +25,15 @@ button:focus{
 }
 button{
     cursor: pointer;
+
+    :disabled{
+        cursor: not-allowed;
+        opacity: 0.7;
+    }
 }
 @media (max-width: 768px) {
   html {
-    font-size: 87.5%;
+    font-size: 83.5%;
   }
   
 }
