@@ -40,7 +40,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     orderReducer,
     {
       orderCoffes: [],
-    },
+    }/*,
     () => {
       const storedStateAsJSON = localStorage.getItem(
         "01-@coffe-delivery:order-state-1.0.0"
@@ -48,7 +48,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
-    }
+    }*/
   );
   const { orderCoffes } = orderStates;
   const [formData, setFormData] = useState<orderFormData>(() => {
@@ -100,7 +100,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
     const stateJSON = JSON.stringify(orderStates);
 
     localStorage.setItem("01-@coffe-delivery:order-state-1.0.0", stateJSON);
-  }, [orderStates]);
+  }, [orderStates]);  
 
   return (
     <OrderContext.Provider
