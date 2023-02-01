@@ -8,7 +8,7 @@ import { useContext } from "react";
 import { OrderContext } from "../../contexts/OrderContexts";
 export function Header() {
   const { orderCoffes } = useContext(OrderContext);
-  const orderIsEmpty = orderCoffes.length === 0;
+  
   const navigate = useNavigate();
   return (
     <HeaderContainer>
@@ -22,7 +22,7 @@ export function Header() {
 
           <CartContainer>
             <NavLink to="/checkout" title="Carrinho">
-              {!orderIsEmpty && <ItemsInCartCounter />}
+              {orderCoffes.length > 0 && <ItemsInCartCounter />}
               <ShoppingCart size={22} color="#c47f17" weight="fill" />
             </NavLink>
           </CartContainer>

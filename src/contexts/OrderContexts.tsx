@@ -37,29 +37,43 @@ export const OrderContext = createContext({} as OrderContextProps);
 
 export function OrderContextProvider({ children }: OrderContextProviderProps) {
   const [orderStates, dispatch] = useReducer(
-    orderReducer,
+    orderReducer, 
     {
-      orderCoffes: [],
+      orderCoffes:[]
     },
     () => {
+
       const storedStateAsJSON = localStorage.getItem(
-        "01-@coffe-delivery:order-state-1.0.0"
+        "01-@coffe-delivery:order-states-1.0.0"
       );
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON);
       }
+      else{
+        return {orderCoffes:[]}
+      }
+     
     }
   );
-  const { orderCoffes } = orderStates;
-  const [formData, setFormData] = useState<orderFormData>(() => {
-    const storedStateAsJSON = localStorage.getItem(
-      "01-@coffe-delivery:form-data-1.0.0"
-    );
-    if (storedStateAsJSON) {
-      return JSON.parse(storedStateAsJSON);
-    }
-  });
 
+  const { orderCoffes } = orderStates;
+  const [formData, setFormData] = useState<orderFormData>(
+    
+    () => {
+      const storedStateAsJSON = localStorage.getItem(
+        "01-@coffe-delivery:form-data-1.0.0"
+      );
+    if (storedStateAsJSON) {
+      
+      return JSON.parse(storedStateAsJSON);
+    }  else{
+      return {}
+    }
+  } 
+  
+  
+  );
+  
   function addCoffeToCart(coffe: OrderCoffeProps) {
     const orderCoffe: OrderCoffeProps = {
       imageUrl: coffe.imageUrl,
@@ -99,7 +113,7 @@ export function OrderContextProvider({ children }: OrderContextProviderProps) {
   useEffect(() => {
     const stateJSON = JSON.stringify(orderStates);
 
-    localStorage.setItem("01-@coffe-delivery:order-state-1.0.0", stateJSON);
+    localStorage.setItem("01-@coffe-delivery:order-states-1.0.0", stateJSON);
   }, [orderStates]);  
 
   return (
